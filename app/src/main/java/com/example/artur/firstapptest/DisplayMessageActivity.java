@@ -3,7 +3,6 @@ package com.example.artur.firstapptest;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -17,6 +16,9 @@ public class DisplayMessageActivity extends ActionBarActivity {
         // Gets the message from HelloWorldActivity
         String message = intent.getStringExtra(HelloWordActivity.EXTRA_MESSAGE);
 
+        if (message.isEmpty()) {
+            message = getResources().getString(R.string.default_value_display_message);
+        }
         TextView textView = new TextView(this);
         textView.setTextSize(40);
         textView.setText(message);
